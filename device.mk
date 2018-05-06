@@ -102,11 +102,11 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libbson \
-    camera.device@1.0-impl \
     camera.device@3.2-impl \
     android.hardware.camera.provider@2.4-impl \
     libshim_camera_hal \
     libshims_camera \
+    camera.msm8953 \
     Snap
 
 PRODUCT_COPY_FILES += \
