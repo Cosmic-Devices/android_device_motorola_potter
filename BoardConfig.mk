@@ -180,14 +180,11 @@ BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216        #    16384 * 1024 mmcblk0p37
 BOARD_CACHEIMAGE_PARTITION_SIZE := 260014080      #   253920 * 1024 mmcblk0p52
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432    #    16484 * 1024 mmcblk0p38
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3510353920    #  3428080 * 1024 mmcblk0p53
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 26401026048 # 25782252 * 1024 mmcblk0p54
-BOARD_VENDORIMAGE_PARTITION_SIZE := 805306368     #   786432 * 1024 mmcblk0p51 #OEM
-TARGET_COPY_OUT_VENDOR := vendor
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
@@ -227,22 +224,12 @@ MOT_SENSOR_HUB_FEATURE_GR := true
 
 # Shim
 TARGET_LD_SHIM_LIBS := \
-    /vendor/bin/adspd|libshim_adsp.so \
-    /vendor/lib/lib_motsensorlistener.so|libsensor.so \
-    /vendor/lib/libjustshoot.so|libshims_camera.so \
+    /system/vendor/bin/adspd|libshim_adsp.so \
+    /system/lib/lib_motsensorlistener.so|libsensor.so \
+    /system/lib/libjustshoot.so|libshims_camera.so \
     /system/lib/hw/camera.vendor.msm8953.so|libshim_camera_hal.so \
     /system/lib/hw/camera.msm8953.so|libshim_camera_hal.so \
-    /vendor/lib64/libmdmcutback.so|libqsap_shim.so
-
-# Treble
-BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
-BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-#PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-#PRODUCT_SHIPPING_API_LEVEL := 25 # Shipped with N
-PRODUCT_VENDOR_MOVE_ENABLED := true
-
+    /system/vendor/lib64/libmdmcutback.so|libqsap_shim.so
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
